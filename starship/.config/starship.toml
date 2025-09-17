@@ -1,0 +1,83 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[ ](rootbeer)\
+$os\
+$username\
+[█](bg:blackbean fg:rootbeer)\
+$directory\
+[](bg:citrine fg:blackbean)\
+$git_branch\
+$git_status\
+[ ](fg:citrine)\
+$fill\
+[ ](fg:rootbeer)\
+$time\
+$line_break
+\n$character
+"""
+
+palette = 'ristretto'
+
+[fill]
+style = "paleorange"
+
+[line_break]
+disabled = true
+
+[os]
+disabled = false
+style = "bg:rootbeer fg:paleorange"
+
+[os.symbols]
+Arch = "󰣇"
+
+[username]
+show_always = true
+style_user = "bg:rootbeer fg:paleorange"
+style_root = "bg:rootbeer fg:paleorange"
+format = '[ $user]($style)'
+
+[directory]
+style = "bg:blackbean fg:paleorange"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[git_branch]
+symbol = ""
+style = "bg:citrine fg:paleorange"
+format = '[[ $symbol $branch ]($style)]($style)'
+
+[git_status]
+style = "bg:citrine fg:paleorange"
+format = '[[($all_status$ahead_behind )]($style)]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:rootbeer fg:paleorange"
+format = '[[  $time ]($style)]($style)'
+
+[character]
+success_symbol = '[❯](bold fg:citrine)'
+error_symbol = '[❯](bold fg:citrine)'
+vimcmd_symbol = '[❮](bold fg:citrine)'
+vimcmd_replace_one_symbol = '[❮](bold fg:cadmiumorange)'
+vimcmd_replace_symbol = '[❮](bold fg:cadmiumorange)'
+vimcmd_visual_symbol = '[❮](bold fg:paleorange)'
+
+[palettes.ristretto]
+rootbeer = "#1f0e04"
+blackbean = "#431307"
+citrine = "#932C0D"
+paleorange = "#FCE4BE"
+cadmiumorange = "#ED7B35"
+crust = "#282422"
